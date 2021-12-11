@@ -158,3 +158,34 @@ View(data3)
 #those values in which death is equal to 10
 data4<-filter(data, deaths == "10")
 View(data4)
+#filter() deaths of 10 and 30 only
+data5<- filter(data, deaths %in% c("10", "30"))
+data5
+#summarise(), I want the mean of the deaths
+summarise(data2, d_mean= mean(deaths), d_med= median(deaths))
+#group_by(),summarise_at()
+a<- summarise_at(group_by(data, deaths), vars(cases, population), funs(n(), mean(.,na.rm = TRUE)))
+a
+View(a)
+#With pipes
+a<- data%>%group_by(deaths)%>%
+  summarise_at(vars(cases, population), funs(n(), mean(., na.rm=TRUE)))
+#slice() , selct rows by position
+b<- data%>% select(deaths, year) %>%
+  filter(deaths %in% c("10", "30"))%>%
+  group_by(deaths) %>%
+  do(arrange(.,desc(year)))%>% slice(3)
+b
+View(b)
+#rank of variables,The min_rank() function is a function that returns the same values as rank when the ties_method is set to "min", that is, ties are assigned the minimum ranking possible.
+rank<- data %>% group_by(deaths)%>%filter(min_rank(desc(population))==50)%>%
+  select(deaths, year, population)
+rank
+View(rank)
+
+#joins
+#INNER JOIN, returns rows when there is a match in both tables. In this case, I am merging
+#rank a data4 with deaths as primary key
+
+d<- inner_join(rank,data4, by="deaths")
+View(d)

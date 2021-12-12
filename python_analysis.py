@@ -10,8 +10,8 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-forecast = pd.read_csv("C:/Users/cosim/Desktop/Querini/Data visualization/Forecast_merged.csv")
-os.chdir("C:/Users/cosim/Desktop/Querini/Data visualization")
+forecast = pd.read_csv("C:/Users/cosim/Desktop/Querini/PythonR-/Forecast_merged.csv")
+os.chdir("C:/Users/cosim/Desktop/Querini/PythonR-")
 
 #%%
 
@@ -44,22 +44,50 @@ plt.show()
 
 #TEMPERATURA A ROMA
 
+Rome = forecast[forecast["city"]=="Rome"]
+Paris = forecast[forecast["city"]=="Parigi"]
+Reykjavik = forecast[forecast["city"]=="Reykjavik"]
+Jerusalem = forecast[forecast["city"]=="Jerusalem"]
+Barcelona = forecast[forecast["city"]=="Barcelona"]
+Florence = forecast[forecast["city"]=="Florence"]
+Malta = forecast[forecast["city"]=="Malta"]
+SanMartinoinPensilis = forecast[forecast["city"]=="San Martino in Pensilis"]
+Budapest = forecast[forecast["city"]=="Budapest"]
+
 figure, axes = plt.subplots(nrows=3, ncols=3)
+axes[0, 0].plot(Rome["time"], Rome["temperature"], c = 'red')
+axes[0,0].xaxis.set(ticks='')
+axes[0,0].set(title= 'Rome')
 
-axes[0, 0].plot(x, y)
-#create specific subplots
+axes[1, 0].plot(Paris["time"], Paris["temperature"], c = 'indigo')
+axes[1,0].xaxis.set(ticks='')
+axes[1,0].set(title= 'Paris')
 
-axes[0, 1].plot(x1, np.sin(x1))
-axes[1, 0].plot(x1, np.cos(x1))
-axes[1, 1].plot(range(10))
+axes[2, 0].plot(Reykjavik["time"], Reykjavik["temperature"], c = 'blue')
+axes[2,0].xaxis.set(ticks='')
+axes[2,0].set(title= 'Reykjavik')
+
+axes[0, 1].plot(Jerusalem["time"], Jerusalem["temperature"], c = 'brown', )
+axes[0,0].xaxis.set(ticks='')
+axes[0,0].set(title= 'Rome')
+
+axes[1, 1].plot(Barcelona["time"], Barcelona["temperature"], c = 'yellow')
+
+axes[2, 1].plot(Florence["time"], Florence["temperature"], c = 'deepskyblue')
+
+axes[0, 2].plot(Malta["time"], Malta["temperature"], c = 'gold')
+
+axes[1, 2].plot(SanMartinoinPensilis["time"], SanMartinoinPensilis["temperature"], c = 'pink')
+
+axes[2, 2].plot(Budapest["time"], Budapest["temperature"], c = 'violet')
+
+plt.tight_layout()
+
+for ax in axes:
+    ax.set_xticks([])
+
+
 
 figure.tight_layout()
-
-for i in cities:
     
 Rome = forecast[forecast["city"]=="Rome"]
-
-Rome.plot( kind="scatter", x="time", y="temperature")
-plt.tight_layout()
-plt.savefig( "Rome_temperature")
-plt.show()

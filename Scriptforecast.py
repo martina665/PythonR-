@@ -99,7 +99,7 @@ plt.show()
 
 
 
-
+#Jerusalem Pressure
 plt.plot(Jerusalem.time, Jerusalem.pressure)
 plt.show()
 #One graph with three lines for Paris temperature, precpitation and dewpoint
@@ -109,17 +109,13 @@ plt.plot(Paris.time, Paris.precipitation, 'b.-')
 plt.plot(Paris.time, Paris.dewpoint, 'g.-')
 plt.xticks(Paris.time)
 plt.show()
-#HIST
+
 #ROME
 plt.hist(Rome['dewpoint'], bins = 30)
 plt.show()
 #MALTA
 plt.hist(Malta['relative humidity'], bins=50)
 plt.show()
-#bar
-plt.rcdefaults()
-fig, ax = plt.subplots()
-
 
 
 
@@ -136,4 +132,25 @@ plt.matshow(corr)
 
 cormap = sns.heatmap(corr, annot=True)
 
+
 #%%
+#pandas manipulation
+#Rename col
+forecast.rename(mapper=None, index=None, columns={'pressure': 'pressione', 'temperature':'temp'}, axis=None, copy=True, inplace=False, level=None, errors='ignore')
+#Sort columns
+forecast.sort_values(by= 'temperature') 
+
+#sort by position
+forecast.loc[2], ['dewpoint']
+
+
+
+
+
+
+
+
+
+
+
+

@@ -42,7 +42,7 @@ We started to display the values, starting with plotting the evolution of the te
 
 #------------------------------------------------------------
 
-Since from the graphs above we can not properly see anything, we create another plot sublotting 9 different graphs for 9 different cities, again with the evolution of temperatures through 7 days. Before that, we create a sub-dataset containing only the observations relatives to each of the 9 cities:
+Since from the graphs above we can not properly see anything, we created another plot sublotting 9 different graphs for 9 different cities, again with the evolution of temperatures through 7 days. Before that, we created a sub-dataset containing only the observations relatives to each of the 9 cities:
 
         Rome = forecast[forecast["city"]=="Rome"]
         Paris = forecast[forecast["city"]=="Parigi"]
@@ -98,7 +98,7 @@ Since from the graphs above we can not properly see anything, we create another 
 
 #------------------------------------------------------------
 
-We display the evolution of the atmospheric pressure in Jerusalem using a scatter-plot:
+We displaied the evolution of the atmospheric pressure in Jerusalem using a scatter-plot:
 
         plt.plot(Jerusalem.time, Jerusalem.pressure)
         plt.title('Pressure evolution in Jerusalem')
@@ -109,7 +109,7 @@ We display the evolution of the atmospheric pressure in Jerusalem using a scatte
         
 #------------------------------------------------------------
 
-Again with a scatterplot, we display together the evolution of dewpoint with temperature and precipitations for Paris and Reykjavik: 
+Again with a scatterplot, we displaied together the evolution of dewpoint with temperature and precipitations for Paris and Reykjavik: 
 
         plt.title('Paris dew-temp-prec')
         plt.plot(Paris.time, Paris.temperature, 'r.-')
@@ -132,4 +132,36 @@ Again with a scatterplot, we display together the evolution of dewpoint with tem
         plt.legend(labels)
         plt.show()
         
+#------------------------------------------------------------
 
+Then we plotted the distributions of dewpoint and relative humidity respectively for Rome and Malta, using a histogram since we deal with continuous variables:
+
+        plt.hist(Rome['dewpoint'], bins = 30)
+        plt.title('Distribution of dewpoint values in Rome')
+        plt.show()
+
+        plt.hist(Malta['relative humidity'], bins=50)
+        plt.title('Distribution of relative humidity in Malta')
+        plt.show()
+        
+#------------------------------------------------------------
+
+The last plot was about the correlation matrix between all the variables in the dataset. To plot the correlation, we first used matshow from matplotlib library and after heatmap from seaborn:
+
+        corr = forecast.corr()
+        print(corr)
+
+        plt.matshow(corr)
+        plt.title('Correlation matrix')
+
+        cormap = sns.heatmap(corr, annot=True)
+        
+#------------------------------------------------------------
+
+In the end, we performed some manipulations on the dataset using pandas library:
+
+forecast.rename(mapper=None, index=None, columns={'pressure': 'pressione', 'temperature':'temp'}, axis=None, copy=True, inplace=False, level=None, errors='ignore')
+
+forecast.sort_values(by= 'temperature') 
+
+forecast.loc[2], ['dewpoint']

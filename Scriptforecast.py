@@ -5,16 +5,21 @@ Created on Sat Dec 11 17:38:11 2021
 @author: cosim
 """
 
+#Import the library we need
+
 import pandas as pd
 import os
 import matplotlib.pyplot as plt
-import numpy as np
 import seaborn as sns
+
+#import the dataset (please note to change the directory coherently with the computer in use)
 
 forecast = pd.read_csv("C:/Users/marti/PythonProject/covid/PythonR-/Forecast_merged.csv")
 os.chdir("C:/Users/marti/PythonProject/covid/PythonR-")
 
 #%%
+
+#Display some info to explore the data
 
 print(forecast.info)
 
@@ -25,8 +30,6 @@ print(forecast.describe())
 #%%
 
 #Plotting the temperatures for all the cities in the last 7 days in one plot
-
-#unique_list = list(dict.fromkeys(inp_list))
 
 cities = list(dict.fromkeys(forecast["city"]))
 
@@ -100,14 +103,23 @@ plt.show()
 #%%
 
 #Jerusalem Pressure
+
 plt.plot(Jerusalem.time, Jerusalem.pressure)
+plt.title('Pressure evolution in Jerusalem')
+plt.xlabel('Time')
+plt.ylabel('Pressure')
+plt.xticks('')
 plt.show()
-#One graph with three lines for Paris temperature, precpitation and dewpoint
+
+#%%
+
+#One graph with three lines for Paris and Reykjavik temperature, precpitation and dewpoint
 plt.title('Paris dew-temp-prec')
 plt.plot(Paris.time, Paris.temperature, 'r.-')
 plt.plot(Paris.time, Paris.precipitation, 'b.-')
 plt.plot(Paris.time, Paris.dewpoint, 'g.-')
 plt.xticks('')
+plt.xlabel('time')
 labels= 'temperature', 'precipitation', 'dewpoint'
 plt.legend(labels)
 plt.show()
@@ -119,24 +131,21 @@ plt.plot(Reykjavik.time, Reykjavik.precipitation, 'b.-')
 plt.plot(Reykjavik.time, Reykjavik.dewpoint, 'g.-')
 labels= 'temperature', 'precipitation', 'dewpoint'
 plt.xticks('')
+plt.xlabel('Time')
 plt.legend(labels)
 plt.show()
 
-#ROME
+#Histogram for the dewpoint values in Rome
+
 plt.hist(Rome['dewpoint'], bins = 30)
+plt.title('Distribution of dewpoint values in Rome')
 plt.show()
-#MALTA
+
+#Histogram for the dewpoint values in Rome
+
 plt.hist(Malta['relative humidity'], bins=50)
+plt.title('Distribution of relative humidity in Malta')
 plt.show()
-
-#barplot
-temp = Barcelona.groupby(['precipitation','dewpoint']).size().groupby(level=0).value_counts().unstack().transpose()
-temp.reindex(np.arange(temp.index.min(), temp.index.max())).plot(kind='bar', layout=(2,2))
-plt
-
-
-
-
 
 #%%
 
@@ -145,15 +154,20 @@ plt
 corr = forecast.corr()
 print(corr)
 
+#Plot of the correlation matrix using matplotlib.pyplot library
 plt.matshow(corr)
+plt.title('Correlation matrix')
 
+#Plot of the correlation matrix using seaborn library
 cormap = sns.heatmap(corr, annot=True)
 
 
 #%%
 #pandas manipulation
+
 #Rename col
 forecast.rename(mapper=None, index=None, columns={'pressure': 'pressione', 'temperature':'temp'}, axis=None, copy=True, inplace=False, level=None, errors='ignore')
+
 #Sort columns
 forecast.sort_values(by= 'temperature') 
 

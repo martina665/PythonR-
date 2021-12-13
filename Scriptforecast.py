@@ -115,7 +115,9 @@ plt.title('Reykjavik dew-temp-prec')
 plt.plot(Reykjavik.time, Reykjavik.temperature, 'r.-')
 plt.plot(Reykjavik.time, Reykjavik.precipitation, 'b.-')
 plt.plot(Reykjavik.time, Reykjavik.dewpoint, 'g.-')
+labels= 'temperature', 'precipitation', 'dewpoint'
 plt.xticks('')
+plt.legend(labels)
 plt.show()
 
 #ROME

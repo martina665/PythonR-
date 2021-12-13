@@ -98,8 +98,7 @@ plt.savefig('temp_merg')
 plt.show()
 
 
-temp = plt.plot(Barcelona.temperature, Barcelona.dewpoint)
-plt.show
+
 
 plt.plot(Jerusalem.time, Jerusalem.pressure)
 plt.show()
@@ -110,6 +109,10 @@ plt.plot(Paris.time, Paris.precipitation, 'b.-')
 plt.plot(Paris.time, Paris.dewpoint, 'g.-')
 plt.xticks(Paris.time)
 plt.show()
+
+
+
+
 
 
 

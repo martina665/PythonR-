@@ -7,13 +7,20 @@ Regarding the covid dataset, we performed the analysis on R software, therefore 
 
 Regarding the forecast dataset, we performed on Python the following steps to analyse the data and to display some useful graphs about the variables involved:
 
-First we imported the dataset needed for the analysis:
+First we imported the librarues needed for the analysis:
 
     import pandas as pd
     import os
     import matplotlib.pyplot as plt
     import seaborn as sns
 
+#------------------------------------------------------------
+
+Then we imported the dataset:
+
+        forecast = pd.read_csv("C:/Users/cosim/Desktop/Querini/PythonR-/Forecast_merged.csv")
+        os.chdir("C:/Users/cosim/Desktop/Querini/PythonR-")
+        
 #------------------------------------------------------------
 
 We explored the data taking a glance at the variables, rows and columns of the dataset:

@@ -9,6 +9,7 @@ import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
 forecast = pd.read_csv("C:/Users/marti/PythonProject/covid/PythonR-/Forecast_merged.csv")
 os.chdir("C:/Users/marti/PythonProject/covid/PythonR-")
@@ -117,4 +118,13 @@ plt.show()
 
 #%%
 
+#Correlation matrix
 
+corr = forecast.corr()
+print(corr)
+
+plt.matshow(corr)
+
+cormap = sns.heatmap(corr, annot=True)
+
+#%%

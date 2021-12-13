@@ -14,8 +14,8 @@ import seaborn as sns
 
 #import the dataset (please note to change the directory coherently with the computer in use)
 
-forecast = pd.read_csv("C:/Users/marti/PythonProject/covid/PythonR-/Forecast_merged.csv")
-os.chdir("C:/Users/marti/PythonProject/covid/PythonR-")
+forecast = pd.read_csv("C:/Users/cosim/Desktop/Querini/PythonR-/Forecast_merged.csv")
+os.chdir("C:/Users/cosim/Desktop/Querini/PythonR-")
 
 #%%
 
@@ -30,8 +30,6 @@ print(forecast.describe())
 #%%
 
 #Plotting the temperatures for all the cities in the last 7 days in one plot
-
-cities = list(dict.fromkeys(forecast["city"]))
 
 colors = {'Rome':'red', 'Reykjavik':'blue','Jerusalem':'brown','Barcelona':'yellow','Lamezia Terme':'purple','Florence':'deepskyblue','Urbania':'black',
           'San Martino in Pensilis':'pink','Schiavonea':'green','Berlino':'lime','Budapest':'violet','Bruxelles':'sandybrown','Malta':'gold',
@@ -141,7 +139,7 @@ plt.hist(Rome['dewpoint'], bins = 30)
 plt.title('Distribution of dewpoint values in Rome')
 plt.show()
 
-#Histogram for the dewpoint values in Rome
+#Histogram for the relative humidity values in Malta
 
 plt.hist(Malta['relative humidity'], bins=50)
 plt.title('Distribution of relative humidity in Malta')

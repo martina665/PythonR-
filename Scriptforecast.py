@@ -10,8 +10,8 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 
-forecast = pd.read_csv("C:/Users/cosim/Desktop/Querini/PythonR-/Forecast_merged.csv")
-os.chdir("C:/Users/cosim/Desktop/Querini/PythonR-")
+forecast = pd.read_csv("C:/Users/marti/PythonProject/covid/PythonR-/Forecast_merged.csv")
+os.chdir("C:/Users/marti/PythonProject/covid/PythonR-")
 
 #%%
 
@@ -95,6 +95,25 @@ axes[2,2].set(title= 'Budapest', xlabel = 'time', ylabel = 'temp')
 plt.tight_layout()
 plt.savefig('temp_merg')
 plt.show()
+
+
+temp = plt.plot(Barcelona.temperature, Barcelona.dewpoint)
+plt.show
+
+plt.plot(Jerusalem.time, Jerusalem.pressure)
+plt.show()
+#One graph with three lines for Paris temperature, precpitation and dewpoint
+plt.title('Paris dew-temp-prec')
+plt.plot(Paris.time, Paris.temperature, 'r.-')
+plt.plot(Paris.time, Paris.precipitation, 'b.-')
+plt.plot(Paris.time, Paris.dewpoint, 'g.-')
+plt.xticks(Paris.time)
+plt.show()
+
+#PIE
+
+
+
 
 #%%
 

@@ -7,6 +7,38 @@ Regarding the covid dataset, we performed the analysis on R software, therefore 
 
 Regarding the forecast dataset, we performed the following steps to analyse the data and to display some useful graphs about the variables involved:
 
+First we imported the dataset needed for the analysis:
+
+    import pandas as pd
+    import os
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+#------------------------------------------------------------
+
+We explored the data taking a glance at the variables, rows and columns of the dataset:
+
+    print(forecast.info)
+    
+    print(forecast["city"].value_counts())
+    
+    print(forecast.describe()) 
+
+#------------------------------------------------------------
+
+We started to display the values, starting with plotting the evolution of the temperatures for each city in the dataset, giving a different colour to each line, representing a city, with the help of a dictionary:
+
+    colors = {'Rome':'red', 'Reykjavik':'blue','Jerusalem':'brown','Barcelona':'yellow','Lamezia Terme':'purple','Florence':'deepskyblue','Urbania':'black',
+          'San Martino in Pensilis':'pink','Schiavonea':'green','Berlino':'lime','Budapest':'violet','Bruxelles':'sandybrown','Malta':'gold',
+          'Parigi':'indigo'}
 
 
+    ax = forecast.plot( kind="scatter", x="time", y="temperature", c = forecast["city"].map(colors))
+    plt.xticks('')
+    plt.tight_layout()
+    plt.savefig( "Temepratures")
+    plt.show()
+    
+
+#------------------------------------------------------------
 

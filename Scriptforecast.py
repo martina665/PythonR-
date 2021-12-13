@@ -109,9 +109,16 @@ plt.plot(Paris.time, Paris.precipitation, 'b.-')
 plt.plot(Paris.time, Paris.dewpoint, 'g.-')
 plt.xticks(Paris.time)
 plt.show()
-
-
-
+#HIST
+#ROME
+plt.hist(Rome['dewpoint'], bins = 30)
+plt.show()
+#MALTA
+plt.hist(Malta['relative humidity'], bins=50)
+plt.show()
+#bar
+plt.rcdefaults()
+fig, ax = plt.subplots()
 
 
 

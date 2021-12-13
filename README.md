@@ -23,7 +23,7 @@ Then we imported the dataset:
         
 #------------------------------------------------------------
 
-We explored the data taking a glance at the variables, rows and columns of the dataset:
+We explored the data taking a glance on the variables, rows and columns of the dataset:
 
     print(forecast.info)
     

@@ -97,7 +97,7 @@ plt.tight_layout()
 plt.savefig('temp_merg')
 plt.show()
 
-
+#%%
 
 #Jerusalem Pressure
 plt.plot(Jerusalem.time, Jerusalem.pressure)
@@ -107,7 +107,15 @@ plt.title('Paris dew-temp-prec')
 plt.plot(Paris.time, Paris.temperature, 'r.-')
 plt.plot(Paris.time, Paris.precipitation, 'b.-')
 plt.plot(Paris.time, Paris.dewpoint, 'g.-')
-plt.xticks(Paris.time)
+plt.xticks('')
+plt.show()
+
+
+plt.title('Reykjavik dew-temp-prec')
+plt.plot(Reykjavik.time, Reykjavik.temperature, 'r.-')
+plt.plot(Reykjavik.time, Reykjavik.precipitation, 'b.-')
+plt.plot(Reykjavik.time, Reykjavik.dewpoint, 'g.-')
+plt.xticks('')
 plt.show()
 
 #ROME

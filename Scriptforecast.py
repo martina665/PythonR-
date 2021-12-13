@@ -108,6 +108,8 @@ plt.plot(Paris.time, Paris.temperature, 'r.-')
 plt.plot(Paris.time, Paris.precipitation, 'b.-')
 plt.plot(Paris.time, Paris.dewpoint, 'g.-')
 plt.xticks('')
+labels= 'temperature', 'precipitation', 'dewpoint'
+plt.legend(labels)
 plt.show()
 
 

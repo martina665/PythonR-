@@ -111,7 +111,6 @@ plt.plot(Paris.time, Paris.dewpoint, 'g.-')
 plt.xticks(Paris.time)
 plt.show()
 
-#PIE
 
 
 

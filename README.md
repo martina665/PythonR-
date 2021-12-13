@@ -7,7 +7,7 @@ Regarding the covid dataset, we performed the analysis on R software, therefore 
 
 Regarding the forecast dataset, we performed on Python the following steps to analyse the data and to display some useful graphs about the variables involved:
 
-First we imported the librarues needed for the analysis:
+First we imported the libraries needed for the analysis:
 
     import pandas as pd
     import os

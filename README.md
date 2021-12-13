@@ -160,8 +160,8 @@ The last plot was about the correlation matrix between all the variables in the 
 
 In the end, we performed some manipulations on the dataset using pandas library:
 
-forecast.rename(mapper=None, index=None, columns={'pressure': 'pressione', 'temperature':'temp'}, axis=None, copy=True, inplace=False, level=None, errors='ignore')
+        forecast.rename(mapper=None, index=None, columns={'pressure': 'pressione', 'temperature':'temp'}, axis=None, copy=True, inplace=False, level=None, errors='ignore')
 
-forecast.sort_values(by= 'temperature') 
+        forecast.sort_values(by= 'temperature') 
 
-forecast.loc[2], ['dewpoint']
+        forecast.loc[2], ['dewpoint']

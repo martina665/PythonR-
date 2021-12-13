@@ -129,6 +129,11 @@ plt.show()
 plt.hist(Malta['relative humidity'], bins=50)
 plt.show()
 
+#barplot
+temp = Barcelona.groupby(['precipitation','dewpoint']).size().groupby(level=0).value_counts().unstack().transpose()
+temp.reindex(np.arange(temp.index.min(), temp.index.max())).plot(kind='bar', layout=(2,2))
+plt
+
 
 
 
